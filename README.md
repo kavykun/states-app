@@ -13,3 +13,8 @@ In root folder, on terminal run to start the server and disable cache:
 ```
 http-server -c-1
 ```
+
+To simplify the process, I have used local storage as my primary platform for the database.
+I would use mongodb or mysql if I had a node server running to keep all databases queries on the backend.
+
+To reset the array of states, just clear browser cache.
