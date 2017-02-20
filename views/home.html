@@ -1,0 +1,47 @@
+<div class="text-center">
+    <h1>Browser Window Size</h1>
+    <h2><span resize="format"></span></h2>
+
+    <div ui-grid="stateCtrl.statesOptions">
+    </div>
+</div>
+
+<h2>Add State</h2>
+<button ng-click="stateCtrl.addShow = true" type="button" class="btn btn-primary">Add State</button>
+<div ng-if="stateCtrl.addShow">
+    <div class="form-group">
+        <label for="astate">State:</label>
+        <input ng-model="stateCtrl.addModel.state" type="text" class="form-control" id="astate">
+    </div>
+    <div class="form-group">
+        <label for="acapital">Capital:</label>
+        <input ng-model="stateCtrl.addModel.capital" type="text" class="form-control" id="acapital">
+    </div>
+    <button type="button" ng-click="stateCtrl.changeState(stateCtrl.addModel, 'add')"
+            class="btn btn-primary btn-block">
+        Submit
+    </button>
+</div>
+
+<h2>Modify State</h2>
+<select class="selectpicker" ng-model="stateCtrl.selectedState"
+        ng-change="stateCtrl.updateInput(stateCtrl.selectedState)">
+    <option ng-repeat="stateObj in stateCtrl.states track by $index">{{stateObj.state}}</option>
+</select>
+
+<button ng-click="stateCtrl.changeState(stateCtrl.selectedState, 'delete')" class="btn btn-danger">Delete</button>
+
+<div ng-if="stateCtrl.changeShow">
+    <div class="form-group">
+        <label for="cstate">State:</label>
+        <input ng-model="stateCtrl.changeModel.state" type="text" class="form-control" id="cstate">
+    </div>
+    <div class="form-group">
+        <label for="ccapital">Capital:</label>
+        <input ng-model="stateCtrl.changeModel.capital" type="text" class="form-control" id="ccapital">
+    </div>
+    <button type="button" ng-click="stateCtrl.changeState(stateCtrl.changeModel, 'submit')"
+            class="btn btn-primary btn-block">
+        Modify
+    </button>
+</div>
